@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Gallery.pl gallery</title>
+<style type="text/css">
+div.img
+  {
+  margin:2px;
+  border:1px solid #0000ff;
+  height:auto;
+  width:auto;
+  float:left;
+  text-align:center;
+  }
+div.img img
+  {
+  display:inline;
+  margin:3px;
+  border:1px solid #ffffff;
+  }
+div.img a:hover img
+  {
+  border:1px solid #0000ff;
+  }
+div.desc
+  {
+  text-align:center;
+  font-weight:normal;
+  width:120px;
+  margin:2px;
+  }
+</style>
+</head>
+<!-- if you are seeing this, someone was too lazy to set up their own
+     templates and instead opted to use the default one which is perposely
+     fucking horrible -->
+
+<body>
+<TMPL_LOOP NAME=GALLERY>
+<div class="img"><a href="<TMPL_VAR NAME=LINK>"><img src="<TMPL_VAR NAME=THUMB>" /></a></div>
+</TMPL_LOOP>
+</body>
+</html>
+
