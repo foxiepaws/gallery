@@ -71,20 +71,20 @@ sub generate_gallery {
     my $picl = scalar @pics;
     for (my $count = 0; $count < $picl; $count++) {
         my ($previmage, $nextimage);
-if ($count == 0) {
-$previmage = $pics[$picl-1];
-$nextimage = $pics[$count+1];
-} elsif ($count == $picl-1) {
+        if ($count == 0) {
+            $previmage = $pics[$picl-1];
+            $nextimage = $pics[$count+1];
+        } elsif ($count == $picl-1) {
             $previmage = $pics[$count-1];
-$nextimage = $pics[0];
-} else {
+            $nextimage = $pics[0];
+        } else {
             $previmage = $pics[$count-1];
-$nextimage = $pics[$count+1];
-}
-my $currentimage = $pics[$count];
-open(FILE, ">".$config{pubdir}.$pics[$count].".html");
-print FILE generate_single($currentimage,$previmage,$nextimage);
-close FILE;
+            $nextimage = $pics[$count+1];
+        }
+        my $currentimage = $pics[$count];
+        open(FILE, ">".$config{pubdir}.$pics[$count].".html");
+        print FILE generate_single($currentimage,$previmage,$nextimage);
+        close FILE;
     }
 }
 ## generates the index page for the gallery
@@ -170,8 +170,8 @@ sub error_404_headers {
 }
 ##################################################################################################
 if ($config{CGIMODE} == 1) {
-# run the prepare function.
-prepare(); # builds image library and creates needed thumbs quick.
+    # run the prepare function.
+    prepare(); # builds image library and creates needed thumbs quick.
     # we have a few choices for handling the data, we can do it with QUERY_STRING or PATH_INFO
     # how we handle each one is a little different so bring on the logic!
     if ($ENV{PATH_INFO} eq undef) {              # just in case, this will probably handle QUERY_STRING based code later
