@@ -26,7 +26,7 @@ use HTML::Template;
 ##
 
 my %config = (
-CGIMODE => 1,
+CGIMODE => 0,
 imagedir => "full/",
 thumbdir => "thumbs/",
 pubdir => "",
@@ -229,4 +229,6 @@ prepare(); # builds image library and creates needed thumbs quick.
             print "the content you attempted to access does not exist.";
         }
     }
+} else {
+    generate_gallery();
 }
