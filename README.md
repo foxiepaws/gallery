@@ -14,7 +14,7 @@ put the images in the pubdir's full dir and run the script.
 Using the CGI mode
 ------------------
 
-With CGI mode you need to put your assets and images outside of the path and then rewrite e.g. like
+With CGI mode you need to put your assets and images in the document root and then rewrite e.g. like
 <pre>
 RewriteEngine on
 RewriteCond %{REQUEST_URI} !assets/(.*)\.
