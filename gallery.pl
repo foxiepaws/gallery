@@ -26,11 +26,11 @@ use HTML::Template;
 ##
 
 my %config = (
-CGIMODE => 0,
-imagedir => "full/",
-thumbdir => "thumbs/",
-pubdir => "",
-tmpldir => "./tmpls/"
+    CGIMODE => 0,
+    imagedir => "full/",
+    thumbdir => "thumbs/",
+    pubdir => "",
+    tmpldir => "./tmpls/"
 );
 
 # this array will hold all the image files from the image store.
@@ -51,7 +51,7 @@ sub get_images {
 sub generate_thumbs {
     # create thumbnails using ImageMagick for each picture in @pics. and save into the thumbnail dir.
     foreach (@pics) {
-# we only want to generate the thumbs if they dont already exist so ensure thats the case.
+        # we only want to generate the thumbs if they dont already exist so ensure thats the case.
         if (!(-f $config{pubdir}.$config{thumbdir}.$_)) {
             system("convert ".$config{pubdir}.$config{imagedir}.$_." -thumbnail 260x180 ".$config{pubdir}.$config{thumbdir}.$_);
         }
@@ -102,7 +102,7 @@ sub generate_index {
             $row{LINK} = "view?image=$_";
         }
         $row{THUMB} = $config{thumbdir}.$_;
-# push the hash to the list for the gallery
+        # push the hash to the list for the gallery
         push @table, \%row;
     }
     # bind the table to the template.
