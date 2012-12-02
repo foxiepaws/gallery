@@ -1,20 +1,18 @@
 #!/usr/bin/env perl
 
-# my CGI wrapper for Perl gallery
-
 #########################################################################
-# PerlGallery #
-# A simple Static image gallery generator. Thats right, Static. #
-# Static pages are faster to serve. this same code CAN be used for a #
+# PerlGallery                                                           #
+# A simple Static image gallery generator. Thats right, Static.         #
+# Static pages are faster to serve. this same code CAN be used for a    #
 # CGI by enabling the CGI mode but by default will generate many static #
-# files #
+# files                                                                 #
 #########################################################################
-# Author: Joshua Theze <foxwolfblood> ###########################
-# License: ###########################
-# This program released under the WTFPL. ###########################
-# ###########################
-# ###########################
-# 0. You just DO WHAT THE FUCK YOU WANT TO. ###########################
+# Author: Joshua Theze <foxwolfblood>         ###########################
+# License:                                    ###########################
+# This program released under the WTFPL.      ###########################
+#                                             ###########################
+#                                             ###########################
+# 0. You just DO WHAT THE FUCK YOU WANT TO.   ###########################
 #########################################################################
 
 ## lets use the modules we are going to use
@@ -220,8 +218,8 @@ prepare(); # builds image library and creates needed thumbs quick.
                 $nextimage = $pics[$found+1];
             }
             my $currentimage = $pics[$found];
-            html_cgi_headers();                                                                          # print content type and related stuff
-            end_headers();                                                                               # print X-Powered-By and the blank \r\n to signify the beginning of content
+            html_cgi_headers(); # print content type and related stuff
+            end_headers();      # print X-Powered-By and the blank \r\n to signify the beginning of content
             print generate_single($currentimage,$previmage,$nextimage);
         } else { # its a 404, show a page and then go back to the index.
             error_404_headers();
