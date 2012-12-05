@@ -27,6 +27,23 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png">
+   <script type="text/javascript">
+function resize_h() {
+    var nav = document.getElementsByClassName("navbar");
+    var pagers = document.getElementsByClassName("pager");
+    var ph = pagers.item(0).clientHeight;
+    var navh = nav.item(0).clientHeight;
+    var img = document.getElementById("pic");
+    var computedHeight = window.innerHeight - navh - ph - 50;
+    img.style.maxHeight = computedHeight + "px";
+    var pl = document.getElementById("padme");
+    var iw = img.clientWidth;
+    // var iw = iws.replace("px","");
+    var sw = document.getElementById("mc").clientWidth;
+    var cw = ((sw / 2) - (iw/2)) ;
+    pl.style.paddingLeft = cw + "px";
+}
+</script> 
   </head>
 
   <body>
@@ -50,9 +67,9 @@
       </div>
     </div>
 
-    <div class="container">
-<div style="text-algin: center; ">
-                  <a href="<TMPL_VAR NAME=PATH>"><img src="<TMPL_VAR NAME=PATH>" width=100% height=100% alt=""></a>
+    <div id="mc" class="container">
+<div id="padme" style="text-algin: center; ">
+                  <a href="<TMPL_VAR NAME=PATH>"><img id="pic" src="<TMPL_VAR NAME=PATH>" width=100% height=100% alt=""></a>
 </div>
     <ul class="pager">
     <li class="previous">
@@ -68,6 +85,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jquery.touchwipe.min.js"></script>
     <script src="./assets/js/bootstrap-transition.js"></script>
     <script src="./assets/js/bootstrap-alert.js"></script>
     <script src="./assets/js/bootstrap-modal.js"></script>
@@ -89,6 +107,13 @@ $(document.documentElement).keyup(function (event) {
   } else if (event.keyCode == 39) {
     window.location = "./<TMPL_VAR NAME=NEXT>";
   }
+});
+$(document.documentElement).touchwipe({
+     wipeLeft: function() { window.location = "./<TMPL_VAR NAME=PREV>"; },
+     wipeRight: function() { window.location = "./<TMPL_VAR NAME=NEXT>"; },
+     min_move_x: 20,
+     min_move_y: 20,
+     preventDefaultEvents: true
 });
 </script>
   </body>
