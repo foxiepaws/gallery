@@ -4,8 +4,8 @@ Gallery Todo
   * New Template engine? HTML::Template might be a bit heavy.
   * add more sort formats? Need requests to do this
   * Add more formats, such as swf.
-  * <del> Move CGI functionality out of Gallery and into gallery-extended.pl <del>
-  * Move the templates OUT of the repo.
+  * <del> Move CGI functionality out of Gallery and into gallery-extended.pl </del>
+  * <del>Move the templates OUT of the repo.</del>
 
 Gallery-extended
 ================
@@ -18,6 +18,6 @@ Gallery-extended
 
 Gallery-templates
 =================
-  * <del>Move Templates to new repo.</del>
+  * Move Templates to new repo.
   * Add thumbnails for non-image formats.
   * Add a NSFW page.
