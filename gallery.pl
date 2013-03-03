@@ -153,11 +153,7 @@ sub generate_index {
     # for every picture in @pics we want to bind the variables to the single view page and the thumbnail
     foreach (@pics) {
         my %row;
-        if ($config{CGIMODE} == 0){
-            $row{LINK} = "$_.html";
-        }else {
-            $row{LINK} = "view?image=$_";
-        }
+        $row{LINK} = "$_.html";
         $row{THUMB} = $config{thumbdir}.$_;
         # push the hash to the list for the gallery
         push @table, \%row;
@@ -172,11 +168,7 @@ sub generate_single {
    # shift the image we need to work with into $image from @_
    my ($image,$prev,$next) = @_;
    # bind the path for the fullsize image.
-   if ($config{CGIMODE} == 0){
-       $singletmpl->param(PATH => $config{imagedir}.$image,PREV=>$prev.".html",NEXT=>$next.".html");
-   } else {   
-       $singletmpl->param(PATH => $config{imagedir}.$image,PREV=>"view?image=$prev",NEXT=>"view?image=$next");
-   }
+   $singletmpl->param(PATH => $config{imagedir}.$image,PREV=>$prev.".html",NEXT=>$next.".html");
    # return the finished product
    return $singletmpl->output;
 }
